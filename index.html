@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lakshmi Lavanya N - AI/ML Engineer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f8f9fc;
+            color: #2c3e50;
+            line-height: 1.7;
+        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+        /* Header */
+        header {
+            background: #1e3c72;
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo { font-size: 1.5rem; font-weight: 700; }
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover { color: #ffd700; }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(rgba(30,60,114,0.9), rgba(42,82,152,0.9)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%231e3c72" width="1200" height="600"/><path fill="%232a5298" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,600L1392,600C1344,600,1248,600,1152,600C1056,600,960,600,864,600C768,600,672,600,576,600C480,600,384,600,288,600C192,600,96,600,48,600L0,600Z"/></svg>') center/cover;
+            color: white;
+            text-align: center;
+            padding: 160px 20px 100px;
+        }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 10px; }
+        .hero .title { font-size: 1.6rem; color: #ffd700; margin-bottom: 20px; }
+        .hero .contact-info {
+            font-size: 1.1rem;
+            margin-top: 20px;
+        }
+        .hero .contact-info a {
+            color: #ffd700;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: 500;
+        }
+        .hero .contact-info a:hover { text-decoration: underline; }
+
+        /* Sections */
+        .section { padding: 80px 0; }
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: #1e3c72;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: #ffd700;
+            display: block;
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        .summary {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            font-size: 1.1rem;
+            line-height: 1.9;
+        }
+
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        .edu-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+            border-left: 5px solid #ffd700;
+        }
+        .edu-card h3 { color: #1e3c72; margin-bottom: 8px; }
+        .edu-card .institute { font-weight: 600; color: #2a5298; }
+        .edu-card .date { color: #888; font-size: 0.95rem; margin: 8px 0; }
+        .edu-card .grade { font-weight: 700; color: #1e3c72; }
+
+        .projects-grid { display: grid; gap: 30px; }
+        .project {
+            background: white;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+        .project:hover { transform: translateY(-8px); }
+        .project h3 { color: #1e3c72; margin-bottom: 15px; }
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+        }
+        .tag {
+            background: #e3f2fd;
+            color: #1565c0;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .skill-box {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.07);
+        }
+        .skill-box h4 { color: #1e3c72; margin-bottom: 10px; }
+
+        .achieve-grid {
+            display: grid;
+            gap: 20px;
+        }
+        .achieve {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            position: relative;
+        }
+        .achieve::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0;
+            width: 6px; height: 100%;
+            background: #ffd700;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .contact-item {
+            background: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.07);
+            text-decoration: none;
+            color: #333;
+            transition: all 0.3s;
+        }
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        }
+        .contact-item .icon { font-size: 2rem; margin-bottom: 10px; color: #2a5298; }
+
+        footer {
+            background: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 25px 0;
+            margin-top: 50px;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2.5rem; }
+            .hero .title { font-size: 1.3rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container nav">
+            <div class="logo">Lakshmi Lavanya N</div>
+            <nav class="nav-links">
+                <a href="#about">About</a>
+                <a href="#education">Education</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <h1>Lakshmi Lavanya N</h1>
+            <p class="title">AI/ML Engineer & Software Developer</p>
+            <div class="contact-info">
+                <a href="tel:7795952603">7795952603</a> |
+                <a href="mailto:lakshmilavanya292@gmail.com">lakshmilavanya292@gmail.com</a> |
+                <a href="https://www.linkedin.com/in/lakshmilavanya292" target="_blank">LinkedIn</a> |
+                <a href="https://github.com/lakshmilavanya292" target="_blank">GitHub</a> |
+                <a href="https://leetcode.com/u/lakshmilavanya292" target="_blank">LeetCode</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+
+        <!-- Professional Summary -->
+        <section id="about" class="section">
+            <h2 class="section-title">Professional Summary</h2>
+            <div class="summary">
+                Passionate Artificial Intelligence and Machine Learning Engineering student with strong foundations in Software Development and Data Structures. Skilled in designing scalable, optimized solutions using C++, Python, and Object-Oriented Programming. Experienced in developing end-to-end applications and machine learning systems using Flask, MySQL, and Cloud platforms, with a focus on performance, efficiency, and real-world impact.
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section id="education" class="section">
+            <h2 class="section-title">Education</h2>
+            <div class="education-grid">
+                <div class="edu-card">
+                    <h3>Bachelor of Engineering in CSE (AIML)</h3>
+                    <div class="institute">RNS Institute of Technology</div>
+                    <div class="date">Dec 2022 – Present</div>
+                    <div class="grade">CGPA: 8.80 / 10.00</div>
+                </div>
+                <div class="edu-card">
+                    <h3>Senior Secondary</h3>
+                    <div class="institute">Kumaran’s Composite PU College</div>
+                    <div class="date">Mar 2021 – Apr 2022</div>
+                    <div class="grade">MARKS: 92%</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects" class="section">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-grid">
+                <div class="project">
+                    <h3>NutriScan AI: Fruit Analytics Platform</h3>
+                    <div class="tech-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Streamlit</span>
+                        <span class="tag">XGBoost</span>
+                        <span class="tag">K-Means</span>
+                        <span class="tag">Pandas</span>
+                        <span class="tag">MySQL</span>
+                    </div>
+                    <ul style="margin-left:20px; margin-top:15px;">
+                        <li>Engineered full-stack AI platform comparing Indian vs. imported fruits on nutrients, price, and carbon footprint.</li>
+                        <li>Improved classification accuracy by 15% using XGBoost optimization.</li>
+                        <li>Deployed interactive Streamlit dashboard on Google Cloud with MySQL integration.</li>
+                    </ul>
+                </div>
+                <div class="project">
+                    <h3>Cyber Threat Detection Using Machine Learning</h3>
+                    <div class="tech-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Isolation Forest</span>
+                        <span class="tag">Local Outlier Factor</span>
+                    </div>
+                    <ul style="margin-left:20px; margin-top:15px;">
+                        <li>Automated anomaly detection in credit card fraud dataset.</li>
+                        <li>Reduced false positives by 12% via feature engineering.</li>
+                        <li>Built real-time ML pipelines for proactive threat mitigation.</li>
+                    </ul>
+                </div>
+                <div class="project">
+                    <h3>Alcohol Detection Using MP3 Sensor</h3>
+                    <div class="tech-tags">
+                        <span class="tag">8051 Microcontroller</span>
+                        <span class="tag">Embedded Systems</span>
+                    </div>
+                    <ul style="margin-left:20px; margin-top:15px;">
+                        <li>Designed alcohol detector with buzzer for driver safety.</li>
+                        <li>Won college-level ideathon.</li>
+                        <li>Gained hands-on experience in hardware-software integration.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section id="skills" class="section">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-box"><h4>Languages</h4><p>C++ | Python | SQL | HTML | CSS</p></div>
+                <div class="skill-box"><h4>Tools</h4><p>Google Colab | Flask | Git | GitHub</p></div>
+                <div class="skill-box"><h4>Databases</h4><p>MongoDB | MySQL</p></div>
+                <div class="skill-box"><h4>Core CS Skills</h4><p>DSA | OOP | OS | DBMS | Networking | UNIX</p></div>
+            </div>
+        </section>
+
+        <!-- Achievements -->
+        <section class="section">
+            <h2 class="section-title">Achievements</h2>
+            <div class="achieve-grid">
+                <div class="achieve">
+                    <h3>IEEE YESIST12 PRELIMS</h3>
+                    <p>Achieved 1st Prize in Open House Project Expo (150+ participants)</p>
+                </div>
+                <div class="achieve">
+                    <h3>AI-IDEA Project Expo</h3>
+                    <p>Awarded 2nd Prize among 100+ participants</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications -->
+        <section class="section">
+            <h2 class="section-title">Certifications</h2>
+            <div class="achieve-grid">
+                <div class="achieve"><h3>Introduction to Artificial Intelligence</h3></div>
+                <div class="achieve"><h3>Introduction to Deep Learning</h3></div>
+            </div>
+        </section>
+
+        <!-- Social Engagements -->
+        <section class="section">
+            <h2 class="section-title">Social Engagements</h2>
+            <div class="summary">
+                Club Member at <strong>InnovAlt-ON (Tech Club)</strong> & <strong>AMURA (Cultural Club)</strong><br>
+                Sports: Badminton, Carrom, Football, Basketball
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="section">
+            <h2 class="section-title">Let's Connect</h2>
+            <div class="contact-grid">
+                <a href="tel:7795952603" class="contact-item">
+                    <div class="icon">Phone</div>
+                    <div>7795952603</div>
+                </a>
+                <a href="mailto:lakshmilavanya292@gmail.com" class="contact-item">
+                    <div class="icon">Email</div>
+                    <div>lakshmilavanya292@gmail.com</div>
+                </a>
+                <a href="https://www.linkedin.com/in/lakshmilavanya292" target="_blank" class="contact-item">
+                    <div class="icon">LinkedIn</div>
+                    <div>LinkedIn</div>
+                </a>
+                <a href="https://github.com/lakshmilavanya292" target="_blank" class="contact-item">
+                    <div class="icon">GitHub</div>
+                    <div>GitHub</div>
+                </a>
+                <a href="https://leetcode.com/u/lakshmilavanya292" target="_blank" class="contact-item">
+                    <div class="icon">LeetCode</div>
+                    <div>LeetCode</div>
+                </a>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <div class="container">
+            &copy; 2025 Lakshmi Lavanya N. All Rights Reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
